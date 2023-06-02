@@ -1,14 +1,14 @@
 "use client";
 
+import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import { useState } from "react";
 
 const Page = () => {
   const [sideBarOpened, setSideBarOpened] = useState(false);
 
-  const closeSidebar = () => {
-    setSideBarOpened(false);
-  };
+  const openSidebar = () => setSideBarOpened(true);
+  const closeSidebar = () => setSideBarOpened(false);
 
   const handleClearConversations = () => {};
 
@@ -22,11 +22,16 @@ const Page = () => {
         onClear={handleClearConversations}
         onNewChat={handleNewChat}
       >
-        
+        ...
       </Sidebar>
-      <div className="w-16 h-screen">Teste</div>
       <section className="flex flex-col w-full">
-        <button onClick={() => setSideBarOpened(true)}>Abr</button>
+        <Header
+          openSidebarClick={openSidebar}
+          title={`Bla bla bla`}
+          newChatClick={handleNewChat}
+        />
+
+        
       </section>
     </main>
   );
