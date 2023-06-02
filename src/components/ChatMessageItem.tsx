@@ -13,11 +13,11 @@ const ChatMessageItem = ({ item }: Props) => {
         
         <div
           className={`w-10 h-10 flex justify-center items-center mx-4 md:ml-0 rounded ${
-            item.author === "ai" ? "bg-green-900" : "bg-blue-900"
+            item.author === "ai" ? "bg-transparent" : "bg-blue-900"
           }`}
         >
           {item.author === "me" && <IconUserLarge width={24} height={24} />}
-          {item.author === "ai" && <IconRobot width={24} height={24} />}
+          {item.author === "ai" && <IconRobot width={48} height={48} />}
         </div>
 
         <div className="flex-1 text-base whitespace-pre-wrap">{item.body}</div>

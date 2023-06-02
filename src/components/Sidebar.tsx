@@ -24,7 +24,7 @@ const Sidebar = ({ open, onClose, onClear,onNewChat, children }: Props) => {
           open ? "ml-0" : "-ml-96"
         } md:ml-0`}
       >
-        <div onClick={onNewChat} className="flex flex-col w-64 p-2 bg-gray-900">
+        <div onClick={onNewChat} className="flex flex-col w-64 p-2 bg-[#202123]">
           <div className="flex items-center p-3 rounded-md text-sm cursor-pointer border border-white/20 hover:bg-gray-500/20 transition-all duration-200">
             <IconAdd width={16} height={16} className="mr-3" />
             Nova conversa
