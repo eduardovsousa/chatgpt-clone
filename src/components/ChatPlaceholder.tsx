@@ -1,4 +1,6 @@
 import IconSunTwentyFour from "./icons/IconSunTwentyFour";
+import IconThunderbolt from "./icons/IconThunderbolt";
+import IconWarningOutline from "./icons/IconWarningOutline";
 
 const ChatPlaceholder = () => {
   return (
@@ -6,55 +8,54 @@ const ChatPlaceholder = () => {
       <h3 className="text-4xl font-bold text-center my-8">EVS-GPT</h3>
 
       <div className="flex flex-col md:flex-row gap-5 m-auto mb-8 md:max-w-4xl">
-
         <div className="">
-          <div className="flex justify-center items-center text-lg mb-3">
+          <div className="flex flex-col justify-center items-center text-lg mb-3">
             <IconSunTwentyFour width={24} height={24} className="mr-3" />
-            Exemplo
+            Exemplos
           </div>
           <div className="bg-white/5 rounded text-center text-sm text-white mb-3 p-3">
-            "Explique o sentido da vida em termos simples"
+            "Explique a computação quântica em termos simples"
           </div>
           <div className="bg-white/5 rounded text-center text-sm text-white mb-3 p-3">
-            "Explique o sentido da vida em termos simples"
+            "Tem alguma ideia criativa para o aniversário de uma criança de 5 anos?"
           </div>
           <div className="bg-white/5 rounded text-center text-sm text-white mb-3 p-3">
-            "Explique o sentido da vida em termos simples"
+            "Como faço uma solicitação HTTP em Javascript?"
           </div>
         </div>
 
         <div className="">
-          <div className="flex justify-center items-center text-lg mb-3">
-            <IconSunTwentyFour width={24} height={24} className="mr-3" />
-            Exemplo
+          <div className="flex flex-col justify-center items-center text-lg mb-3">
+            <IconThunderbolt width={24} height={24} className="mr-3" />
+            Capacidades
           </div>
           <div className="bg-white/5 rounded text-center text-sm text-white mb-3 p-3">
-            "Explique o sentido da vida em termos simples"
+            Lembra o que o usuário disse anteriormente na conversa.
           </div>
           <div className="bg-white/5 rounded text-center text-sm text-white mb-3 p-3">
-            "Explique o sentido da vida em termos simples"
+            Permite que o usuário forneça correções de acompanhamento.
           </div>
           <div className="bg-white/5 rounded text-center text-sm text-white mb-3 p-3">
-            "Explique o sentido da vida em termos simples"
+            Treinado para recusar pedidos inapropriados.
           </div>
         </div>
 
         <div className="">
-          <div className="flex justify-center items-center text-lg mb-3">
-            <IconSunTwentyFour width={24} height={24} className="mr-3" />
-            Exemplo
+          <div className="flex flex-col justify-center items-center text-lg mb-3">
+            <IconWarningOutline width={24} height={24} className="mr-3" />
+            Limitações
           </div>
           <div className="bg-white/5 rounded text-center text-sm text-white mb-3 p-3">
-            "Explique o sentido da vida em termos simples"
+            Ocasionalmente pode gerar informações incorretas.
           </div>
           <div className="bg-white/5 rounded text-center text-sm text-white mb-3 p-3">
-            "Explique o sentido da vida em termos simples"
+            Ocasionalmente, pode produzir instruções prejudiciais ou conteúdo
+            tendencioso.
           </div>
           <div className="bg-white/5 rounded text-center text-sm text-white mb-3 p-3">
-            "Explique o sentido da vida em termos simples"
+            Conhecimento limitado do mundo e eventos após 2021.
           </div>
         </div>
-
       </div>
     </div>
   );
