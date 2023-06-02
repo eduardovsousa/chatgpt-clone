@@ -4,10 +4,9 @@ type Props = {
   icon: ReactNode;
   label: string;
   onClick: () => void;
-  onClear: () => void;
 };
 
-const SidebarButton = ({ icon, label, onClick, onClear }: Props) => {
+const SidebarButton = ({ icon, label, onClick }: Props) => {
   return (
     <div
       onClick={onClick}
