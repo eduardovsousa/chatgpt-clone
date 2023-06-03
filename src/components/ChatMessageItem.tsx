@@ -20,7 +20,7 @@ const ChatMessageItem = ({ item }: Props) => {
           {item.author === "ai" && <IconRobot width={48} height={48} />}
         </div>
 
-        <div className="flex-1 text-base whitespace-pre-wrap">{item.body}</div>
+        <div className="flex-1 text-base whitespace-pre-wrap mb-8">{item.body}</div>
       </div>
     </div>
   );

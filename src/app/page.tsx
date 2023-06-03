@@ -1,11 +1,13 @@
 "use client";
 
+import AlertNotification from "@/components/AlertNotification";
 import ChatArea from "@/components/ChatArea";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import { SidebarChatButton } from "@/components/SidebarChatButton";
 import { Chat } from "@/types/Chat";
+import { openai } from "@/utils/openai";
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
@@ -15,6 +17,7 @@ const Page = () => {
   const [chatActiveId, setChatActiveId] = useState<string>("");
   const [chatActive, setChatActive] = useState<Chat>();
   const [AILoading, setAILoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     setChatActive(chatList.find((item) => item.id === chatActiveId));
@@ -27,23 +30,31 @@ const Page = () => {
   const openSidebar = () => setSideBarOpened(true);
   const closeSidebar = () => setSideBarOpened(false);
 
-  const getAIResponse = () => {
-    setTimeout(() => {
-      let chatListClone = [...chatList];
-      let chatIndex = chatListClone.findIndex(
-        (item) => item.id == chatActiveId
+  const getAIResponse = async () => {
+    let chatListClone = [...chatList];
+    let chatIndex = chatListClone.findIndex((item) => item.id == chatActiveId);
+
+    if (chatIndex > -1) {
+      const response = await openai.generate(
+        openai.translateMessages(chatListClone[chatIndex].messages)
       );
 
-      if (chatIndex > -1) {
+      if (response) {
         chatListClone[chatIndex].messages.push({
           id: uuidv4(),
           author: "ai",
-          body: "Vou te informar...",
+          body: response,
         });
+      } else {
+        handleErrorModal();
       }
-      setChatList(chatListClone);
-      setAILoading(false);
-    }, 2000);
+    }
+    setChatList(chatListClone);
+    setAILoading(false);
+  };
+
+  const handleErrorModal = () => {
+    document.getElementById('btnModalError')?.classList.remove('hidden');
   };
 
   const handleClearConversations = () => {
@@ -142,6 +153,10 @@ const Page = () => {
           title={chatActive ? chatActive.title : "Nova conversa"}
           newChatClick={handleNewChat}
         />
+
+        <button className="hidden" onClick={() => setError(true)} id="btnModalError">
+          <AlertNotification />
+        </button>
 
         <ChatArea chat={chatActive} loading={AILoading} />
 
